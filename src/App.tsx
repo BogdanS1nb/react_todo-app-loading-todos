@@ -91,6 +91,15 @@ export const App: React.FC = () => {
                   completed: todo.completed,
                 })}
               >
+                <div
+                  data-cy="TodoLoader"
+                  className={classNames('modal overlay', {
+                    selected: isLoading,
+                  })}
+                >
+                  <div className="modal-background has-background-white-ter" />
+                  <div className="loader" />
+                </div>
                 <label className="todo__status-label">
                   <input
                     data-cy="TodoStatus"
@@ -114,12 +123,6 @@ export const App: React.FC = () => {
                 </button>
               </div>
             ))}
-            {isLoading && (
-              <div data-cy="TodoLoader" className="modal overlay is-active">
-                <div className="modal-background has-background-white-ter" />
-                <div className="loader" />
-              </div>
-            )}
           </section>
         )}
 
